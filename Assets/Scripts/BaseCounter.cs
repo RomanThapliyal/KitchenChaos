@@ -2,15 +2,35 @@ using UnityEngine;
 
 public class BaseCounter : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] private Transform counterTopPoint;
+
+    [SerializeField] private KitchenObject kitchenObject;
+    public virtual void Interact(Player player)
     {
-        
+        Debug.LogError("BaseCounter.Interact()");
+    }
+    public Transform GetKitchenObjectFollowTransform()
+    {
+        return counterTopPoint;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetKitchenObject(KitchenObject kitchenObject)
     {
-        
+        this.kitchenObject = kitchenObject;
+    }
+
+    public KitchenObject GetKitchenObject()
+    {
+        return kitchenObject;
+    }
+
+    public void ClearKitchenObject()
+    {
+        kitchenObject = null;
+    }
+
+    public bool hasKitchenObject()
+    {
+        return kitchenObject != null;
     }
 }
